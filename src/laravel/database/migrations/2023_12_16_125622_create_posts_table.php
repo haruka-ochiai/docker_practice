@@ -19,9 +19,6 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('image');
-            $table->string('level')->default('normal');
-
-
             $table->timestamps();
         });
     }
