@@ -37,10 +37,10 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('posts.index')">
                             {{ __('投稿一覧') }}
                         </x-dropdown-link>
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('posts.create')">
                             {{ __('新規投稿') }}
                         </x-dropdown-link>
                         <!-- Authentication -->
