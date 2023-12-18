@@ -37,9 +37,17 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        Post::create($request -> all());
-        return Redirect::route('posts.index');
+    {    
+        $input = $request->all();
+        
+        if($request->hasFile('image')){
+            $imagePath = $request->file('image')->store('images', 'public');
+            $input['image'] = $imagePath;
+        }
+        
+        Post::create($input);
+
+        return redirect()->route('posts.index');
     }
 
     /**

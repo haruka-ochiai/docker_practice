@@ -10,6 +10,23 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     一覧画面
+                <table class="table">
+                    @csrf
+                    <tr>
+                        <th>投稿者</th> 
+                        <th>画像</th>    
+                        <th>名前</th>
+                        <th>説明</th>
+                    </tr>
+                    @foreach($posts as $post)
+                    <tr>
+                        <td>{{$post->user_id}}</td>
+                        <td><img src="{{ asset('public/' . $post->image) }}" alt="Image"></td>
+                        <td>{{$post->name}}</td>
+                        <td>{{$post->description}}</td>
+                    </tr>
+                    @endforeach
+                </table>
                 </div>
             </div>
         </div>
