@@ -10,7 +10,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form method="POST" action="{{ route('posts.index') }}" enctype="multipart/form-data">
-                            @csrf
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+
                         <div>
                             <label for="form-name">名前</label>
                             <input type="text" name="name" class="form-control" id="form-name" required>
