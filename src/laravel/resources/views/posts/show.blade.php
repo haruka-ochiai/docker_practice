@@ -26,19 +26,18 @@
                     </tr>
                 </table>
 
-                <div class="d-flex justify-content">
-                <form action= "{{ route('posts.destroy', $post->id) }}" method="POST">
-                    @method('DELETE')    
-                    @csrf
-                    <button type="submit" class="btn btn-danger">削除</button>
-                </form>
-                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary ml-3">
-                    編集
-                </a>
-                </div>
-                
-                
-
+                @if (auth()->check() && auth()->user()->id == $post->user_id)
+                    <div class="d-flex justify-content">
+                    <form action= "{{ route('posts.destroy', $post->id) }}" method="POST">
+                        @method('DELETE')    
+                        @csrf
+                        <button type="submit" class="btn btn-danger">削除</button>
+                    </form>
+                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary ml-3">
+                        編集
+                    </a>
+                    </div>
+                @endif
                 </div>
             </div>
         </div>
