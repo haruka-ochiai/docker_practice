@@ -21,8 +21,8 @@
                     @foreach($posts as $post)
                     <tr>
                         <td>{{$post->user_id}}</td>
-                        <td><img src="{{ asset('public/' . $post->image) }}" alt="Image"></td>
-                        <td>{{$post->name}}</td>
+                        <td><img src="{{ asset('public/images' . $post->image) }}" alt="Image"></td>
+                        <td><a href="{{ route('posts.show', ['post' => $post->id]) }}">{{$post->name}}</a></td>
                         <td>{{$post->description}}</td>
                     </tr>
                     @endforeach
